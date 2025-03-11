@@ -7,11 +7,11 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey:import.meta.env.VITE_FIREBASE_API_KEY  ,       
-  authDomain: "savorybitesreact.firebaseapp.com",
-  projectId: "savorybitesreact",
-  storageBucket: "savorybitesreact.firebasestorage.app",
-  messagingSenderId: "1098515506081",
-  appId: "1:1098515506081:web:4e1418e5fe245b1be7e1e0"
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID ,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSANGING_SENDER_ID ,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID ,
 };
 
 // Initialize Firebase
