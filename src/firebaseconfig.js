@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_FIREBASE_API_KEY  ,       //"AIzaSyBUShd6ozHb9QEunI7trL2zwDg99bL3Cro",
+  apiKey:import.meta.env.VITE_FIREBASE_API_KEY  ,       
   authDomain: "savorybitesreact.firebaseapp.com",
   projectId: "savorybitesreact",
   storageBucket: "savorybitesreact.firebasestorage.app",
