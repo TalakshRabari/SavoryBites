@@ -9,7 +9,8 @@ import { NavLink } from "react-router"
 
 function ViewProduct() {
    
-        let [products , setProducts] =useState("")
+        let [products , setProducts] =useState([])
+        let [searchquery , setSearchQuery] =useState("")
 
            useEffect(()=>{
             viewproducts()
@@ -26,7 +27,16 @@ function ViewProduct() {
                   setProducts(result);
                  });
             }
+
+            //  Search Handle function
+
+            let handleSearchChange = (e) => {
+                setSearchQuery(e.target.value);
+            }
         
+            let filteredProducts = products.filter((product) => {
+              return product.name.toLowerCase().includes(searchquery.toLowerCase());
+            });
 
     return (
         <>
@@ -62,20 +72,10 @@ function ViewProduct() {
                                             </div>
                                             <div className="flex items-center justify-between gap10 flex-wrap">
                                                 <div className="wg-filter flex-grow">
-                                                    <div className="show">
-                                                        <div className="text-tiny">Showing</div>
-                                                        <div className="select">
-                                                            <select className>
-                                                                <option>10</option>
-                                                                <option>20</option>
-                                                                <option>30</option>
-                                                            </select>
-                                                        </div>
-                                                        <div className="text-tiny">entries</div>
-                                                    </div>
+                                                    
                                                     <form className="form-search">
                                                         <fieldset className="name">
-                                                            <input type="text" placeholder="Search here..." className name="name" tabIndex={2} defaultValue aria-required="true" required />
+                                                            <input type="text" placeholder="Search Products..." value={searchquery} onChange={handleSearchChange} className name="name" tabIndex={2} defaultValue aria-required="true" required />
                                                         </fieldset>
                                                         <div className="button-submit">
                                                             <button className type="submit"><i className="icon-search" /></button>
@@ -93,10 +93,10 @@ function ViewProduct() {
                                                         <div className="body-title">Product ID</div>
                                                     </li>
                                                     <li>
-                                                        <div className="body-title">Product Description</div>
+                                                        <div className="body-title">Product Category</div>
                                                     </li>
                                                     <li>
-                                                        <div className="body-title">Brand Name</div>
+                                                        <div className="body-title">Product Description</div>
                                                     </li>
                                                     <li>
                                                         <div className="body-title">Price</div>
@@ -106,45 +106,61 @@ function ViewProduct() {
                                                     </li>
                                                 </ul>
                                                 <div className="divider" />
-                                                {products &&
-                          products.map((product) => (
-                            <ul className="flex flex-column">
-                              <li className="attribute-item flex items-center justify-between gap20">
-                                <div className="name">
-                                  <a
-                                    href="add-attributes.html"
-                                    className="body-title-2"
-                                  >
-                                    {product.name}
-                                  </a>
+                                                {filteredProducts && filteredProducts.length > 0 ?
+                                  (filteredProducts.map((product) => (
+                            <ul className="flex flex-column" style={{paddingLeft: 0}} >
+                              <li className="product-item gap14">
+                                
+                                <div className="flex items-center justify-between gap20 flex-grow">
+              
+                             
+                                <div className="name" style={{display:"flex", flexDirection:"row" , gap:"20px"}}>
+                                  <div  className="image no-bg">
+                                      {product.imageUrl && (
+                                        <img src={product.imageUrl}  alt={product.name} width={100} />
+                                      )}  
+                                </div>
+                                    {product.name} 
+                                  
+                                  
                                 </div>
                                 <div className="body-text">
                                 {product.productid}
                                 </div>
                                 <div className="body-text">
+                                  {product.category}
+                                </div>
+
+                                <div className="body-text">
                                  
                                   {product.desc}
                                 </div>
-                                <div className="body-text">
-                                  {product.brand}
-                                </div>
-                                <div className="body-text">
+                                <div className="body-text"  style={{textAlign:"-webkit-center"}}>
                                   {product.price}
                                 </div>
-                                <div className="body-text">
-                                  {product.category}
-                                </div>
-                                <div className="list-icon-function">
+                              
+                                <li className="list-icon-function">
                                   <div className="item eye">
-                                  <div className="icons8-edit"></div>
+                                              <i class="icon-eye"></i>   
                                   </div>
                                   <div className="item edit">
-                                  <div class="icons8-delete"></div>
+                                           <i class="icon-edit-3"></i>
                                   </div>
-                                </div>
+                                  <div className="item trash">
+                                           <i class="icon-trash-2"></i>
+                                  </div>
+
+                                </li>
+                         
+                                 </div>
                               </li>
                             </ul>
-                          ))}
+                          )) 
+                         )  : (
+                          <div>No Matching Product Found</div>
+                         )
+                        
+                        }
                                                
                                             </div>
                                             

@@ -10,14 +10,23 @@ import { collection , getDocs } from "firebase/firestore"
 function AdminDashboard() {
 
            let [categories ,setCategories] = useState(0)
+           let [products ,setProducts] = useState(0)
+           
            useEffect( ()=>{
-            getCategories()
+            getCategories();
+            getProducts()
            },[])
 
            async function getCategories(){
             let colref = collection(db ,"categories")
             let snapshot = await getDocs(colref)
             setCategories(snapshot.docs.length)
+           }
+
+           async function getProducts(){
+            let colRef = collection( db , "products")
+            let snapShot = await getDocs(colRef)
+            setProducts(snapShot.docs.length)
            }
 
     return (
@@ -70,7 +79,7 @@ function AdminDashboard() {
                                                         </div>
                                                         <div>
                                                             <div className="body-text mb-2">Total Products</div>
-                                                            <h4>10</h4>
+                                                            <h4>{products}</h4>
                                                         </div>
                                                     </div>
                                                    

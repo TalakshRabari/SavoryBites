@@ -82,20 +82,20 @@ function AddCategory() {
                                                     <div className="body-title">Category Id <span className="tf-color-1">*</span></div>
                                                     <input  value={categoryid} onChange={(e) => setCategoryid(e.target.value)} className="flex-grow" type="number" placeholder="Category Id" name="text" tabIndex={0}  aria-required="true" required />
                                                 </fieldset>
-                                                <fieldset>
-                                                    <div className="body-title">Upload images <span className="tf-color-1">*</span></div>
-                                                    <div className="upload-image flex-grow">
-                                                        <div className="item up-load">
-                                                            <label className="uploadfile" htmlFor="myFile">
-                                                                <span className="icon">
-                                                                    <i className="icon-upload-cloud" />
-                                                                </span>
-                                                                <span className="body-text">Drop your images here or select <span className="tf-color">click to browse</span></span>
-                                                                <input type="file" id="myFile" name="filename" />
-                                                            </label>
+                                                    {/* <fieldset>
+                                                        <div className="body-title">Upload images <span className="tf-color-1">*</span></div>
+                                                        <div className="upload-image flex-grow">
+                                                            <div className="item up-load">
+                                                                <label className="uploadfile" htmlFor="myFile">
+                                                                    <span className="icon">
+                                                                        <i className="icon-upload-cloud" />
+                                                                    </span>
+                                                                    <span className="body-text">Drop your images here or select <span className="tf-color">click to browse</span></span>
+                                                                    <input type="file" id="myFile" name="filename" />
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </fieldset>
+                                                    </fieldset> */}
                                                 <fieldset className="category">
                                                     <div className="body-title">Category Description</div>
                                                     <textarea value={desc} onChange={(e)=>setDesc(e.target.value)} className="flex-grow" type="text" placeholder="Category Description" name="text" tabIndex={0}  aria-required="true" required />

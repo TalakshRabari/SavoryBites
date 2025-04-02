@@ -228,7 +228,7 @@ function Home() {
                     </section>
                     {/* ingredients Section END */}
                     {/* customers favorite  Us START */}
-                    <section className="cus-favorite mb-80 py-40">
+                    {/* <section className="cus-favorite mb-80 py-40">
                         <div className="text-center">
                             <span className="eyebrow about-btn bg-sec br-12 white mb-6">favorites</span>
                             <h2 className="mb-48">customers favorite </h2>
@@ -305,7 +305,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                     {/* customers favorite  Us END */}
                     {/* BANNER SECTION START */}
                     <section className="banner-1 py-80 mb-80">
@@ -337,7 +337,7 @@ function Home() {
                     </section>
                     {/* BANNER SECTION END */}
                     {/* OUR TEAM Section START */}
-                    <section className="team-sec  py-80">
+                    {/* <section className="team-sec  py-80">
                         <div className>
                             <div className="text-center mb-48">
                                 <span className="eyebrow about-btn bg-color-quat br-12 white mb-6">our team</span>
@@ -663,8 +663,8 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    {/* Testimonials Area Start */}
+                    </section> */}
+                    {/* Testimonials Area Start
                     <div className="testimonials_area_1 mb-80">
                         <div className="text-center mb-48">
                             <span className="eyebrow about-btn bg-sec br-12 white mb-6">TESTIMONIALS</span>
@@ -755,7 +755,7 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     {/* Testimonials Area End */}
                     {/* BLOG Section START */}
                     <section className="blog-sec py-80">

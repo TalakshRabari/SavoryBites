@@ -4677,7 +4677,7 @@ select.h40 {
   flex-shrink: 0;
 }
 .wg-table.table-product-list .product-item > .flex > div:nth-child(5), .wg-table.table-product-list .product-item > .flex > div:nth-child(4) {
-  width: 90px;
+  width: 20%;
   flex-shrink: 0;
 }
 .wg-table.table-product-list .product-item > .flex > div:last-child {
@@ -6754,3 +6754,40 @@ select.h40 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.table-container {
+  width: 100%;
+}
+
+.table-header, .table-row {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 2fr 0.8fr 0.5fr;
+  text-align: left;
+  align-items: center;
+  padding: 10px;
+}
+
+.table-header {
+  background-color: #f8f9fa; /* Light background for headers */
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+.table-row {
+  border-bottom: 1px solid #eee;
+}
+
+.table-row img {
+  max-width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px; /* Prevents text from overflowing */
+}

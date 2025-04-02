@@ -143,7 +143,7 @@ function HeaderAdmin() {
                                             <img src="AdminSide/images/avatar/user-1.png" alt />
                                         </span>
                                         <span className="flex flex-column">
-                                            <span className="body-title mb-2">Kristin Watson</span>
+                                            <span className="body-title mb-2">Pratik Patel </span>
                                             <span className="text-tiny">Admin</span>
                                         </span>
                                     </span>
