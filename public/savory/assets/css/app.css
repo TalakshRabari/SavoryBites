@@ -4396,7 +4396,7 @@ input[type=search]::-webkit-search-results-decoration {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #A0205B;
+  /* background-color: #A0205B; */
 }
 .shop-detail .cbx {
   display: flex;

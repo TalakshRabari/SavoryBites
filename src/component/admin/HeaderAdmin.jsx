@@ -140,10 +140,10 @@ function HeaderAdmin() {
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span className="header-user wg-user">
                                         <span className="image">
-                                            <img src="AdminSide/images/avatar/user-1.png" alt />
+                                            <img src="/AdminSide/images/avatar/user-1.png" alt />
                                         </span>
                                         <span className="flex flex-column">
-                                            <span className="body-title mb-2">Pratik Patel </span>
+                                            <span className="body-title mb-2">Talaksh Rabari </span>
                                             <span className="text-tiny">Admin</span>
                                         </span>
                                     </span>

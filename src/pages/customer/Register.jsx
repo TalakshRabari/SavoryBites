@@ -33,7 +33,7 @@ function Register() {
        {
         error(err)
         console.log(err);
-       }
+       }  
 
        navigate('/customer');
      }

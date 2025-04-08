@@ -3,7 +3,7 @@ import Footer from "../../component/customer/Footer"
 import Header from "../../component/customer/Header"
 import PageTitle from "../../component/customer/PageTitle"
 import { useState } from "react"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { auth } from "../../firebaseconfig"
 import { error, success } from "../../store/message"
 
@@ -11,7 +11,7 @@ function Login(){
 
   let [email ,setEmail] = useState("")
   let [pwd ,setPwd] = useState("")
-
+  let navigate = useNavigate()
  async function login(){
      try{
       console.log("Login Function Invoked!")
@@ -23,6 +23,7 @@ function Login(){
       error("Something Went Wrong!")
       console.log(err)
      }
+   navigate('/customer');
   }
 
     return(

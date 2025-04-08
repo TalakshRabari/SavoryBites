@@ -31,6 +31,8 @@ import ViewCategory from './pages/admin/ViewCategory'
 import ViewProduct from './pages/admin/ViewProduct'
 import Settings from './pages/customer/Settings'
 import Shop from './pages/customer/Shop';
+import Products from './pages/customer/Products';
+import UpdateCategory from './pages/admin/UpateCategory';
 // import HeaderAdmin from './component/admin/HeaderAdmin'
 
 
@@ -55,7 +57,8 @@ function App() {
           <Route index element={<Dashboard/>}/>
            {/* <Route path="/customer/dashboard" element={<Dashboard/>}/> */}
           <Route path="/customer/checkout" element={<Checkout />} />
-          <Route path="/customer/productdetail" element={<ProductDetails />} />
+          <Route path="/customer/productdetail/:id" element={<ProductDetails />} />
+          <Route path="/customer/product" element={<Products/>} />
           <Route path="/customer/Setting" element={<Settings />} />
           <Route path="/customer/menu" element={<Menu />} />
         </Route>
@@ -65,6 +68,7 @@ function App() {
           <Route index element={<AdminDashboard />}/>
 
             <Route path="/admin/addcategory" element={<AddCategory />} />
+            <Route path="/admin/updatecategory/:id" element={<UpdateCategory />} />
             <Route path="/admin/addproduct" element={<AddProduct />} />
             <Route path="/admin/viewcategory" element={<ViewCategory />} />
             <Route path="/admin/viewproduct" element={<ViewProduct />} />

@@ -260,7 +260,7 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default UpdateProduct;
 
 
 

@@ -4,14 +4,15 @@ import SidebarAdmin from "../../component/admin/SidebarAdmin";
 import FooterAdmin from "../../component/admin/FooterAdmin";
 import { useState, useEffect } from "react";
 import { db } from "../../firebaseconfig";
-import { collection, onSnapshot } from "firebase/firestore";
-import { NavLink } from "react-router";
+import { doc } from "firebase/firestore";
+import { collection, deleteDoc, onSnapshot } from "firebase/firestore";
+import { Link, NavLink } from "react-router";
 
 function ViewCategory() {
   let [categories, setCategories] = useState([]);
   let [searchquery, setSearchQuery] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { 
     getCategories();
   }, []);
 
@@ -36,6 +37,19 @@ function ViewCategory() {
   let filteredCategories = categories.filter((category) => {
     return category.name.toLowerCase().includes(searchquery.toLowerCase());
   });
+
+  async function handleDelete(id){
+    let confirmDelete = window.confirm("are you sure you wnat to delete this category?")
+      if(!confirmDelete) return;
+        
+        try{
+          await deleteDoc(doc(db , "categories" , id));
+          alert("Category Deleted");
+        }catch(error){
+          console.log("Error deleting category:", error);
+        }
+      
+  }  
 
   return (
     <>
@@ -138,6 +152,7 @@ function ViewCategory() {
                     <div className="divider" />
                     {filteredCategories && filteredCategories.length > 0 ? (
                       filteredCategories.map((category) => (
+
                         <ul className="flex flex-column" style={{ paddingLeft: 0 }} key={category.id}>
                           <li className="product-item gap14">
                             <div className="flex items-center justify-between gap20 flex-grow">
@@ -154,10 +169,10 @@ function ViewCategory() {
                                 }}
                               >
                                 <div className="item edit" style={{ color: "green" }}>
-                                  <i className="icon-edit"></i>
+                                 <Link to={`/admin/updatecategory/${category.id}`}> <i className="icon-edit"></i></Link>
                                 </div>
                                 <div className="item trash" style={{ color: "orange" }}>
-                                  <i className="icon-trash-2"></i>
+                                  <i className="icon-trash-2" onClick={() => handleDelete(category.id)}></i>
                                 </div>
                               </div>
                             </div>

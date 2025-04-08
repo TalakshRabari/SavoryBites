@@ -1,6 +1,6 @@
 import { NavLink } from "react-router"
 import Footer from "../../component/customer/Footer"
-import Header from "../../component/customer/Header"
+import HeaderUsedashboard from "../../component/customer/HeaderUserdashboard"
 
 function Dashboard() {
     return (
@@ -9,7 +9,7 @@ function Dashboard() {
                 {/* Main Wrapper Start */}
                 <div id="scroll-container">
                     {/* HEADER MENU START */}
-                      <Header/>
+                      <HeaderUsedashboard/>
                     {/* HEADER MENU END */}
                     {/* HERO BANNER START */}
                     <section className="hero-banner">

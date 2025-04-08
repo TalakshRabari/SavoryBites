@@ -1,14 +1,17 @@
 import Footer from "../../component/customer/Footer"
-import Header from "../../component/customer/Header"
+import HeaderUsedashboard from "../../component/customer/HeaderUserdashboard"
 import PageTitle from "../../component/customer/PageTitle"
+import { useCartStore } from "../../store/cart"
 
 function Checkout(){
+  let totalPrice = useCartStore((store)=>store.totalPrice)
+  let cart = useCartStore((store)=>store.cart)
     return(
         <>
                         {/* Main Wrapper Start */}
   <div id="scroll-container">
   {/* HEADER MENU START */}
-             <Header/>     
+             <HeaderUsedashboard/>   
   {/* HEADER MENU END */}
   {/* TITLE BANNER START */}
         <PageTitle  title="Checkout"/>
@@ -484,20 +487,21 @@ function Checkout(){
               <h6 className="color-ter">Amount</h6>
             </div>
             <hr className="mb-24" />
-            <div className="d-flex gap-16 align-items-center mb-16">
-              <img className="br-4" src="/savory/assets/media/blog/check-out-img-1.jpg" alt />
-              <a href="menu.html" className="p sidebar-content fw-600 medium-black">Hot dog dressed </a>
-              <div className="dot-icon" />
-              <p className="fw-600 dark-gray">$25.00</p>
-            </div>
-            <hr className="mb-16" />
-            <div className="d-flex gap-16 align-items-center mb-24">
-              <img className="br-4" src="/savory/assets/media/blog/check-out-img-2.jpg" alt />
-              <a href="menu.html" className="p sidebar-content fw-600 medium-black">crispy fries</a>
-              <div className="dot-icon" />
-              <p className="fw-600 dark-gray">$10.00</p>
-            </div>
-            <hr className="mb-24" />
+         {  cart && cart.map((cartitem)=>(
+                     <>
+        
+                    <div className="d-flex gap-16 align-items-center mb-16" key={cartitem.productid}>
+                  <img className="br-4" src={cartitem.url} alt />
+                  <a href="menu.html" className="p sidebar-content fw-600 medium-black">{cartitem.name} </a>
+                  <div className="dot-icon" />
+                  <p className="fw-600 dark-gray">{cartitem.quantity} x {cartitem.price}</p>
+                            </div>
+                     <hr className="mb-16" />
+                     </>
+                    ))
+            }
+           
+          
             <form method="get" className="mb-24">
               <div className="d-flex gap-16 align-items-center justify-content-between">
                 <input type="number" className="coupon-code" placeholder="Coupon Code" />
@@ -507,7 +511,7 @@ function Checkout(){
             <hr className="mb-24" />
             <div className="d-flex justify-content-between align-items-center mb-24">
               <p className="fw-600 medium-black">Subtotal</p>
-              <p className="fw-600">$38.00</p>
+              <p className="fw-600">${totalPrice}</p>
             </div>
             <hr className="mb-24" />
             <p className="mb-16">Your personal data will be used to process your order, support your
